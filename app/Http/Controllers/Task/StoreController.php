@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Task;
 
+use App\Http\Requests\Task\StoreRequest;
 use App\Models\Category;
 use App\Models\Task;
 
 class StoreController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $storeRequest)
     {
-        $categories = Category::all();
-        return view('task.create', compact('categories'));
+        $data = $storeRequest->validated();
+
+        $this->service->store($data);
+
+        return redirect()->route('task.index');
     }
 }
