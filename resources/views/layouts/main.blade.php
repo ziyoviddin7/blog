@@ -48,39 +48,11 @@
         </nav>
     </div>
 
-    <div class="lg:flex lg:items-center lg:justify-between">
-
-        <div class="mt-5 flex lg:mt-0 lg:ml-4" style="margin-top:50px; margin-left:690px;">
-          
-          <span class="sm:ml-3">
-            <button type="button" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              <svg class="mr-1.5 -ml-0.5 size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
-              </svg>
-              CREATE
-            </button>
-          </span>
-
-        </div>
-      </div>
+    
 
     @yield('content')
 
-    <div class="lg:flex lg:items-center lg:justify-between">
-
-        <div class="mt-5 flex lg:mt-0 lg:ml-4" style="margin-top:-150px; margin-left:690px;">
-          
-          <span class="sm:ml-3">
-            <button type="button" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              <svg class="mr-1.5 -ml-0.5 size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
-              </svg>
-              CREATE
-            </button>
-          </span>
-
-        </div>
-      </div>
+    
     
 </body>
 

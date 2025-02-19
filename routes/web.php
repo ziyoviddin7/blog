@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
-    Route::get('/', IndexController::class)->name('task.index');
+    Route::get('/tasks', IndexController::class)->name('task.index');
+    Route::get('/tasks/create', CreateController::class)->name('task.create');
 });
 
