@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <!-- Comment Form -->
-    <form action="{{ route('task.store') }}" method="post">
+    <form action="{{ route('task.store') }}" method="post" style="margin-left: 230px; margin-top: -70px;">
         @csrf
 
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -70,3 +70,13 @@
 
     </form>
 @endsection
+
+{{-- <div class="container" style="margin-left: -100px; margin-top: -22px;">
+    <div class="dropdown">
+        <select id="createDropdown" style="color: white">
+            <option value="" disabled selected>CREATE</option>
+            <option value="task">Task</option>
+            <option value="category">Category</option>
+        </select>
+    </div>
+</div> --}}
