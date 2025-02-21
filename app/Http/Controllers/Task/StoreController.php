@@ -14,6 +14,8 @@ class StoreController extends BaseController
 
         $this->service->store($data);
 
-        return redirect()->route('task.index');
+        return back()->with('success', 'Задача успешно удалена.');
+        //return redirect()->route('task.index');
+
     }
 }

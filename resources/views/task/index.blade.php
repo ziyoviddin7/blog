@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <H1 style="margin-left: 800px; font-size: 20px;">TASKS</H1>
+    <H1 style="margin-left: 800px; font-size: 20px;">All TASKS</H1>
     <!-- Table Section -->
 <div style="margin-left: 260px; margin-top: -25px;" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Card -->
@@ -148,18 +148,19 @@
               </thead>
   
               <tbody class="divide-y divide-gray-200">
+                @foreach ($tasks as $task)
                 <tr class="bg-white hover:bg-gray-50">
                   <td class="size-px whitespace-nowrap">
                     <a class="block relative z-10" href="#">
                       <div class="px-6 py-2">
-                        <div class="block text-sm text-blue-600 decoration-2 hover:underline">#digitalmarketing</div>
+                        <div class="block text-sm text-blue-600 decoration-2 hover:underline">{{ $task->title }}</div>
                       </div>
                     </a>
                   </td>
                   <td class="h-px w-72 min-w-72">
                     <a class="block relative z-10" href="#">
                       <div class="px-6 py-2">
-                        <p class="text-sm text-gray-500">Our group promotes and sells products and services by leveraging online marketing tactics</p>
+                        <p class="text-sm text-gray-500">{{ $task->description }}</p>
                       </div>
                     </a>
                   </td>
@@ -167,7 +168,7 @@
                     <a class="block relative z-10" href="#">
                       <div class="px-6 py-2">
                         <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-gray-100 text-gray-800">
-                          Marketing team
+                          {{ $task->category ? $task->category->title : 'Без категории'}}
                         </span>
                       </div>
                     </a>
@@ -175,37 +176,22 @@
                   <td class="size-px whitespace-nowrap">
                     <a class="block relative z-10" href="#">
                       <div class="px-6 py-2 flex gap-x-1">
-                        <svg class="shrink-0 size-3 text-gray-800" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg class="shrink-0 size-3 text-gray-800" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg class="shrink-0 size-3 text-gray-800" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg class="shrink-0 size-3 text-gray-800" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg class="shrink-0 size-3 text-transparent" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
+                        <p style="font-size: 15px">{{ $task->created_at }}</p>
                       </div>
                     </a>
                   </td>
                   <td class="size-px whitespace-nowrap">
-                    <a class="block relative z-10" href="#">
-                      <div class="px-6 py-2 flex -space-x-2">
-                        
-                        <div class="hs-tooltip inline-flex">
-                            <h1>Delete</h1>
-                        </div>
-                      </div>
-                    </a>
+                    <form action="{{ route('task.delete', $task->id) }}" method="post">
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Delete" style="margin-left: -15px">
+                    </form>
                   </td>
                  
                   </td>
                 </tr>
+                @endforeach
+                
   
                   
               </tbody>
@@ -216,7 +202,7 @@
             <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200">
               <div>
                 <p class="text-sm text-gray-600">
-                  <span class="font-semibold text-gray-800">6</span> results
+                  <span class="font-semibold text-gray-800">10</span> results
                 </p>
               </div>
   

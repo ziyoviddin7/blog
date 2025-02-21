@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Category\CreateController as CategoryCreateController;
 use App\Http\Controllers\Category\StoreController as CategoryStoreController;
+use App\Http\Controllers\Category\DestroyController as CategoryDestroyController;
+use App\Http\Controllers\Category\ShowController as CategoryShowController;
 
 
 use App\Http\Controllers\Task\CreateController;
+use App\Http\Controllers\Task\DestroyController;
 use App\Http\Controllers\Task\IndexController;
 use App\Http\Controllers\Task\StoreController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +28,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
     Route::get('/tasks/create', CreateController::class)->name('task.create');
 
     Route::post('/tasks', StoreController::class)->name('task.store');
+    Route::delete('/tasks{task}', DestroyController::class)->name('task.delete');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Category'], function() {
     Route::get('/category/create', CategoryCreateController::class)->name('category.create');
+    Route::get('/category/{category}', CategoryShowController::class)->name('category.show');
     Route::post('/category', CategoryStoreController::class)->name('category.store');
+    Route::delete('/category{category}', CategoryDestroyController::class)->name('category.delete');
 });
 

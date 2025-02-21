@@ -14,6 +14,7 @@ class StoreController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('task.index');
+        return back()->with('success', 'Задача успешно удалена.');
+
     }
 }

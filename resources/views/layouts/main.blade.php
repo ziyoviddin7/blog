@@ -406,12 +406,17 @@
                                 role="region" aria-labelledby="projects-accordion">
                                 <ul class="ps-8 pt-1 space-y-1">
                                     @foreach ($categories as $category)
-                                        <li>
-                                            <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                href="#">
-                                                {{ $category->title }}
-                                            </a>
-                                        </li>
+                                    <li class="flex items-center justify-between">
+                                        <a class="flex-1 items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                           href="{{ route('category.show', $category->id) }}">
+                                            {{ $category->title }}
+                                        </a>
+                                        <form action="{{ route('category.delete', $category->id) }}" method="post" class="ml-2">
+                                            @csrf
+                                            @method('delete')
+                                            <input type="submit" value="x" class="text-dark-500 hover:text-dark-700">
+                                        </form>
+                                    </li>
                                     @endforeach
 
                                 </ul>
