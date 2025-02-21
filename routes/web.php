@@ -9,6 +9,7 @@ use App\Http\Controllers\Category\ShowController as CategoryShowController;
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\DestroyController;
 use App\Http\Controllers\Task\IndexController;
+use App\Http\Controllers\Task\ShowController;
 use App\Http\Controllers\Task\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
     Route::get('/tasks/create', CreateController::class)->name('task.create');
 
     Route::post('/tasks', StoreController::class)->name('task.store');
+    Route::get('/tasks/{task}', ShowController::class)->name('task.show');
     Route::delete('/tasks{task}', DestroyController::class)->name('task.delete');
 });
 

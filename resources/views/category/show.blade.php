@@ -152,7 +152,7 @@
                   @foreach ($category->tasks as $task)
                   <tr class="bg-white hover:bg-gray-50">
                     <td class="size-px whitespace-nowrap">
-                      <a class="block relative z-10" href="#">
+                      <a class="block relative z-10" href="{{ route('task.show', $task->id) }}">
                         <div class="px-6 py-2">
                           <div class="block text-sm text-blue-600 decoration-2 hover:underline">{{ $task->title }}</div>
                         </div>

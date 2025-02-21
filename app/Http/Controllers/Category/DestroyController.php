@@ -10,7 +10,7 @@ class DestroyController extends Controller
 {
     public function __invoke(Category $category)
     {
-        $category->delete();  
-        return back()->with('success', 'Задача успешно удалена.');
+        $category->delete();
+        return redirect()->route('task.index');
     }
 }

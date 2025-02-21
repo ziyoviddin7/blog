@@ -11,6 +11,7 @@ class DestroyController extends BaseController
     public function __invoke(Task $task)
     {
         $task->delete();
-        return back()->with('success', 'Задача успешно удалена.');
+        //return back()->with('success', 'Задача успешно удалена.');
+        return redirect()->route('task.index');
     }
 }
