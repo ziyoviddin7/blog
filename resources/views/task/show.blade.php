@@ -103,11 +103,11 @@
 
                     <!-- Button -->
                     <div class="hs-tooltip inline-block">
-                        <button type="button"
+                        <a href="{{ route('task.edit', $task->id) }}" type="button"
                             class="hs-tooltip-toggle flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800">
                             Edit
                             </span>
-                        </button>
+                        </a>
                     </div>
                     <!-- Button -->
 

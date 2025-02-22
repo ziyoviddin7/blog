@@ -159,14 +159,14 @@
                       </a>
                     </td>
                     <td class="h-px w-72 min-w-72">
-                      <a class="block relative z-10" href="#">
+                      <a class="block relative z-10" href="{{ route('task.show', $task->id) }}">
                         <div class="px-6 py-2">
                           <p class="text-sm text-gray-500">{{ $task->description }}</p>
                         </div>
                       </a>
                     </td>
                     <td class="size-px whitespace-nowrap">
-                      <a class="block relative z-10" href="#">
+                      <a class="block relative z-10" href="{{ route('task.show', $task->id) }}">
                         <div class="px-6 py-2">
                           <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-gray-100 text-gray-800">
                             {{ $task->category ? $task->category->title : 'Без категории'}}
@@ -175,7 +175,7 @@
                       </a>
                     </td>
                     <td class="size-px whitespace-nowrap">
-                      <a class="block relative z-10" href="#">
+                      <a class="block relative z-10" href="{{ route('task.show', $task->id) }}">
                         <div class="px-6 py-2 flex gap-x-1">
                           <p style="font-size: 15px">{{ $task->created_at }}</p>
                         </div>

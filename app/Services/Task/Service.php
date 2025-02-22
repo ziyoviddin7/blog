@@ -11,4 +11,9 @@ class Service
     {
         Task::create($data);
     }
+
+    public function update($task, $data)
+    {
+        $task->update($data);
+    }
 }

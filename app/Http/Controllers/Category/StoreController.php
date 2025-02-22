@@ -12,7 +12,7 @@ class StoreController extends Controller
             'title' => 'string',
         ]);
 
-        Category::create($data);
+        Category::firstOrCreate($data);
 
         return back()->with('success', 'Задача успешно удалена.');
 

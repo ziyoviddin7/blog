@@ -28,6 +28,7 @@
                             @enderror
 
                         </div>
+                        
 
                         <div class="mt-6 grid" style="margin-top: 30px">
                             <button type="submit"
@@ -43,12 +44,3 @@
     </form>
 @endsection
 
-{{-- <div class="container" style="margin-left: -100px; margin-top: -22px;">
-    <div class="dropdown">
-        <select id="createDropdown" style="color: white">
-            <option value="" disabled selected>CREATE</option>
-            <option value="task">Task</option>
-            <option value="category">Category</option>
-        </select>
-    </div>
-</div> --}}
