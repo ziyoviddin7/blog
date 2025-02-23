@@ -5,15 +5,16 @@ use App\Http\Controllers\Category\StoreController as CategoryStoreController;
 use App\Http\Controllers\Category\DestroyController as CategoryDestroyController;
 use App\Http\Controllers\Category\ShowController as CategoryShowController;
 
-
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\DestroyController;
 use App\Http\Controllers\Task\EditController;
 use App\Http\Controllers\Task\IndexController;
-use App\Http\Controllers\Task\SearchController;
 use App\Http\Controllers\Task\ShowController;
 use App\Http\Controllers\Task\StoreController;
 use App\Http\Controllers\Task\UpdateController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\RegisterController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::group(['namespace' => 'App\Http\Controllers\User'], function() {
+    Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('user.register');
+    Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+    Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('user.login');
+    Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
+});
+
+
 Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
-    Route::get('/tasks', IndexController::class)->name('task.index');
+    Route::get('/tasks', IndexController::class)->middleware('auth')->name('task.index');
     Route::get('/tasks/create', CreateController::class)->name('task.create');
 
     Route::post('/tasks', StoreController::class)->name('task.store');
@@ -44,4 +55,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Category'], function() {
     Route::post('/category', CategoryStoreController::class)->name('category.store');
     Route::delete('/category{category}', CategoryDestroyController::class)->name('category.delete');
 });
+
 
