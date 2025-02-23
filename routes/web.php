@@ -10,6 +10,7 @@ use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\DestroyController;
 use App\Http\Controllers\Task\EditController;
 use App\Http\Controllers\Task\IndexController;
+use App\Http\Controllers\Task\SearchController;
 use App\Http\Controllers\Task\ShowController;
 use App\Http\Controllers\Task\StoreController;
 use App\Http\Controllers\Task\UpdateController;
@@ -34,7 +35,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
     Route::get('/tasks/{task}', ShowController::class)->name('task.show');
     Route::get('/tasks/{task}/edit', EditController::class)->name('task.edit');
     Route::patch('/tasks/{task}', UpdateController::class)->name('task.update');
-    Route::delete('/tasks{task}', DestroyController::class)->name('task.delete');
+    Route::delete('/tasks/{task}', DestroyController::class)->name('task.delete');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Category'], function() {
