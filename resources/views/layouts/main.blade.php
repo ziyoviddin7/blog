@@ -51,6 +51,10 @@
 
             <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
 
+                <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
+                    <p style="font-size: 20px">@ziyovuddin</p>
+                </div>
+
                 <div class="hidden md:block">
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -59,14 +63,15 @@
                 </div>
 
                 <div class="flex flex-row items-center justify-end gap-1">
+                    <form action="{{ route('user.logout') }}" method="post">
+                        @csrf
+                        <div style="margin-right: 15px" class="hs-dropdown [--placement:bottom-right] relative inline-flex">
+                            <a href="{{ route('user.logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"  style="font-size: 20px">Log out</a>
+                        </div>
+                    </form>
+                   
 
-                    <div style="margin-right: 15px" class="hs-dropdown [--placement:bottom-right] relative inline-flex">
-                        <a href="" style="font-size: 20px">Log out</a>
-                    </div>
-
-                    <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
-                        <p style="font-size: 20px">@ziyovuddin</p>
-                    </div>
+                    
 
                 </div>
             </div>

@@ -52,7 +52,7 @@
                         placeholder="Email address">
                 </div>
 
-                <div class="relative flex items-center mt-4">
+                <div class="relative flex items-center mt-4 mb-6">
                     <span class="absolute">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 {{ $errors->has('name') ? 'text-red-900 border-red-800' : 'text-gray-300 dark:text-gray-500"' }}
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -65,6 +65,14 @@
                         class="{{ $errors->has('password') ? 'block w-full py-3 text-gray-700 bg-red border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-red-600 focus:border-red-900 dark:focus:border-red-900 focus:ring-red-900 focus:outline-none focus:ring focus:ring-opacity-40' : 'block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40' }} "
                         
                         placeholder="Password">
+                </div>
+
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="remember" name="remember" class="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                        <label for="remember" class="text-sm text-white">Remember me</label>
+                    </div>
+                    <a href="" class="text-sm font-medium text-green-600 hover:text-green-500">Forgot your password?</a>
                 </div>
 
                 <div class="mt-6">

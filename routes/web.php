@@ -35,25 +35,26 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function() {
 
     Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('user.login');
     Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
+    Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('user.logout');
 });
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
     Route::get('/tasks', IndexController::class)->middleware('auth')->name('task.index');
-    Route::get('/tasks/create', CreateController::class)->name('task.create');
+    Route::get('/tasks/create', CreateController::class)->middleware('auth')->name('task.create');
 
-    Route::post('/tasks', StoreController::class)->name('task.store');
-    Route::get('/tasks/{task}', ShowController::class)->name('task.show');
-    Route::get('/tasks/{task}/edit', EditController::class)->name('task.edit');
-    Route::patch('/tasks/{task}', UpdateController::class)->name('task.update');
-    Route::delete('/tasks/{task}', DestroyController::class)->name('task.delete');
+    Route::post('/tasks', StoreController::class)->middleware('auth')->name('task.store');
+    Route::get('/tasks/{task}', ShowController::class)->middleware('auth')->name('task.show');
+    Route::get('/tasks/{task}/edit', EditController::class)->middleware('auth')->name('task.edit');
+    Route::patch('/tasks/{task}', UpdateController::class)->middleware('auth')->name('task.update');
+    Route::delete('/tasks/{task}', DestroyController::class)->middleware('auth')->name('task.delete');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Category'], function() {
-    Route::get('/category/create', CategoryCreateController::class)->name('category.create');
-    Route::get('/category/{category}', CategoryShowController::class)->name('category.show');
-    Route::post('/category', CategoryStoreController::class)->name('category.store');
-    Route::delete('/category{category}', CategoryDestroyController::class)->name('category.delete');
+    Route::get('/category/create', CategoryCreateController::class)->middleware('auth')->name('category.create');
+    Route::get('/category/{category}', CategoryShowController::class)->middleware('auth')->name('category.show');
+    Route::post('/category', CategoryStoreController::class)->middleware('auth')->name('category.store');
+    Route::delete('/category{category}', CategoryDestroyController::class)->middleware('auth')->name('category.delete');
 });
 
 
