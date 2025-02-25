@@ -13,6 +13,6 @@ class ShowController extends Controller
     {
         $user = Auth::user();
         $categories = $user->categories;
-        return view('category.show', compact('categories','category'));
+        return view('category.show', compact('categories','category', 'user'));
     }
 }

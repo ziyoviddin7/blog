@@ -12,6 +12,6 @@ class EditController extends BaseController
     {
         $user = Auth::user();
         $categories = $user->categories;
-        return view('task.edit', compact('task', 'categories'));
+        return view('task.edit', compact('task', 'categories', 'user'));
     }
 }

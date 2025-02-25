@@ -9,27 +9,12 @@
                 <!-- Avatar Media -->
                 <div class="flex justify-between items-center mb-6">
                     <div class="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
-                        <div class="shrink-0">
-                            <img class="size-12 rounded-full"
-                                src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                                alt="Avatar">
-                        </div>
+                        
 
                         <div class="grow">
                             <div class="flex justify-between items-center gap-x-2">
                                 <div>
-                                    <!-- Tooltip -->
-                                    <div class="hs-tooltip [--trigger:hover] [--placement:bottom] inline-block">
-                                        <div class="hs-tooltip-toggle sm:mb-1 block text-start cursor-pointer">
-                                            <span class="font-semibold text-gray-800">
-                                                Leyla Ludic
-                                            </span>
-
-                                            <!-- Dropdown Card -->
-
-                                            <!-- End Dropdown Card -->
-                                        </div>
-                                    </div>
+                                    
                                     <!-- End Tooltip -->
 
                                     <ul class="text-xs text-gray-500">

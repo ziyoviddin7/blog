@@ -24,6 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'string',
             'description' => 'string',
+            'user_id' => '',
             'category_id' => '',
         ];
     }

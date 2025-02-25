@@ -12,6 +12,6 @@ class ShowController extends BaseController
     {
         $user = Auth::user();
         $categories = $user->categories;
-        return view('task.show', compact('task', 'categories'));
+        return view('task.show', compact('task', 'categories', 'user'));
     }
 }
