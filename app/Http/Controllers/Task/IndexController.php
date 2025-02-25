@@ -12,8 +12,8 @@ class IndexController extends BaseController
     public function __invoke()
     {
         $user = Auth::user();
-        $categories = Category::all();
-        $tasks = Task::paginate(10);
+        $categories = $user->categories;
+        $tasks = $user->tasks;
         return view('task.index', compact('tasks', 'categories', 'user'));
     }
 }

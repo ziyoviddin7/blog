@@ -9,6 +9,7 @@ class Service
 {
     public function store($data)
     {
+        
         Task::create($data);
     }
 
