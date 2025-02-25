@@ -52,7 +52,7 @@
             <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
 
                 <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
-                    <p style="font-size: 20px">@ziyovuddin</p>
+                    <p style="font-size: 20px">{{ $user->name }}</p>
                 </div>
 
                 <div class="hidden md:block">
