@@ -13,7 +13,7 @@ class IndexController extends BaseController
     {
         $user = Auth::user();
         $categories = $user->categories;
-        $tasks = $user->tasks;
+        $tasks = $user->tasks()->paginate(10);
         return view('task.index', compact('tasks', 'categories', 'user'));
     }
 }
